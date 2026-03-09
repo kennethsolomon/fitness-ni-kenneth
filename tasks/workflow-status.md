@@ -13,9 +13,9 @@
 | 6 | /write-tests | not yet | |
 | 7 | /commit | not yet | conditional |
 | 8 | /debug | not yet | optional |
-| 9 | /security-check | not yet | loop until 0 issues |
+| 9 | /security-check | done | 0 critical/high; 4 medium (try? save), 3 low |
 | 10 | /commit | not yet | conditional |
-| 11 | /review | not yet | loop until 0 issues |
+| 11 | /review | >> next << | loop until 0 issues |
 | 12 | /commit | not yet | conditional |
 | 13 | /finish-feature | not yet | |
 | 14 | /release | not yet | optional |

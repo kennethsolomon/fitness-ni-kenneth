@@ -27,6 +27,18 @@ struct ActiveWorkoutView: View {
                         .foregroundStyle(AppTheme.Colors.secondary)
                 }
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        UIApplication.shared.sendAction(
+                            #selector(UIResponder.resignFirstResponder),
+                            to: nil, from: nil, for: nil
+                        )
+                    }
+                    .foregroundStyle(AppTheme.Colors.accent)
+                }
+            }
         }
         .preferredColorScheme(.dark)
     }
@@ -53,6 +65,7 @@ struct ActiveWorkoutView: View {
                     .padding(.bottom, 140)
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
 
             bottomBar
         }

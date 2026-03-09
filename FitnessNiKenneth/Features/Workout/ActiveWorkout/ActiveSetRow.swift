@@ -70,35 +70,34 @@ struct ActiveSetRow: View {
 
     @State private var weightText: String = ""
     @State private var repsText: String = ""
+    @State private var showTagMenu = false
     @FocusState private var weightFocused: Bool
     @FocusState private var repsFocused: Bool
 
     var body: some View {
         HStack(spacing: AppTheme.Spacing.xSmall) {
-            // Set badge with context menu
-            SetBadgeView(set: set, setNumber: setNumber)
-                .contextMenu {
-                    Button {
-                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .normal)
-                    } label: {
-                        Label("Normal", systemImage: "1.circle")
-                    }
-                    Button {
-                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .warmup)
-                    } label: {
-                        Label("Warm-up", systemImage: "flame")
-                    }
-                    Button {
-                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .dropSet)
-                    } label: {
-                        Label("Drop Set", systemImage: "arrow.down.circle")
-                    }
-                    Button {
-                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .failure)
-                    } label: {
-                        Label("Failure", systemImage: "exclamationmark.circle")
-                    }
+            // Set badge — tap to change tag
+            Button {
+                showTagMenu = true
+            } label: {
+                SetBadgeView(set: set, setNumber: setNumber)
+            }
+            .buttonStyle(.plain)
+            .confirmationDialog("Set Type", isPresented: $showTagMenu, titleVisibility: .visible) {
+                Button("Normal") {
+                    workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .normal)
                 }
+                Button("Warm-up") {
+                    workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .warmup)
+                }
+                Button("Drop Set") {
+                    workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .dropSet)
+                }
+                Button("Failure", role: .destructive) {
+                    workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .failure)
+                }
+                Button("Cancel", role: .cancel) {}
+            }
 
             // Previous
             if let prev = previousPerformance {
@@ -132,16 +131,6 @@ struct ActiveSetRow: View {
                 .clipShape(RoundedRectangle(cornerRadius: AppTheme.CornerRadius.small))
                 .onChange(of: weightFocused) { _, focused in
                     if !focused { commitEdit() }
-                }
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Spacer()
-                        Button("Done") {
-                            weightFocused = false
-                            repsFocused = false
-                        }
-                        .foregroundStyle(AppTheme.Colors.accent)
-                    }
                 }
                 .frame(width: 72)
 

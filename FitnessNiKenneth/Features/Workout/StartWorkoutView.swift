@@ -11,6 +11,7 @@ struct StartWorkoutView: View {
 
     @State private var showCreateTemplate = false
     @State private var showEmptyWorkoutConfirm = false
+    @State private var showActiveWorkout = false
     @State private var templateToDelete: WorkoutTemplate?
 
     var body: some View {
@@ -33,6 +34,9 @@ struct StartWorkoutView: View {
             NavigationStack {
                 EditTemplateView(template: nil)
             }
+        }
+        .sheet(isPresented: $showActiveWorkout) {
+            ActiveWorkoutView()
         }
         .confirmationDialog(
             "Start empty workout?",
@@ -60,24 +64,53 @@ struct StartWorkoutView: View {
 
     private var startSection: some View {
         Section {
-            Button {
-                showEmptyWorkoutConfirm = true
-            } label: {
-                HStack {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.title2)
-                        .foregroundStyle(AppTheme.Colors.accent)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Start Empty Workout")
-                            .font(AppTheme.Typography.headline)
-                            .foregroundStyle(AppTheme.Colors.primary)
-                        Text("Build your workout as you go")
+            if workoutEngine.isActive {
+                // Continue active session
+                Button {
+                    showActiveWorkout = true
+                } label: {
+                    HStack {
+                        Image(systemName: "figure.run.circle.fill")
+                            .font(.title2)
+                            .foregroundStyle(AppTheme.Colors.iceCold)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Continue Workout")
+                                .font(AppTheme.Typography.headline)
+                                .foregroundStyle(AppTheme.Colors.primary)
+                            if let name = workoutEngine.session?.name {
+                                Text("\(name) · \(workoutEngine.elapsedSeconds.workoutTimerFormatted)")
+                                    .font(AppTheme.Typography.footnote)
+                                    .foregroundStyle(AppTheme.Colors.iceCold)
+                            }
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
                             .font(AppTheme.Typography.footnote)
                             .foregroundStyle(AppTheme.Colors.secondary)
                     }
-                    Spacer()
+                    .padding(.vertical, AppTheme.Spacing.xSmall)
                 }
-                .padding(.vertical, AppTheme.Spacing.xSmall)
+            } else {
+                // Start new session
+                Button {
+                    showEmptyWorkoutConfirm = true
+                } label: {
+                    HStack {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.title2)
+                            .foregroundStyle(AppTheme.Colors.accent)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Start Empty Workout")
+                                .font(AppTheme.Typography.headline)
+                                .foregroundStyle(AppTheme.Colors.primary)
+                            Text("Build your workout as you go")
+                                .font(AppTheme.Typography.footnote)
+                                .foregroundStyle(AppTheme.Colors.secondary)
+                        }
+                        Spacer()
+                    }
+                    .padding(.vertical, AppTheme.Spacing.xSmall)
+                }
             }
         }
     }

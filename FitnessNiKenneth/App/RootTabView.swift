@@ -32,6 +32,9 @@ struct RootTabView: View {
         .onChange(of: workoutEngine.isActive) { _, isActive in
             if isActive { showActiveWorkout = true }
         }
+        .onChange(of: selectedTab) { _, _ in
+            if workoutEngine.isActive { showActiveWorkout = true }
+        }
         .onAppear {
             if workoutEngine.isActive { showActiveWorkout = true }
         }
