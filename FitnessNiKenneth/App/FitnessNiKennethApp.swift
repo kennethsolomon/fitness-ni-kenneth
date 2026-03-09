@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 @main
 struct FitnessNiKennethApp: App {
@@ -7,11 +8,20 @@ struct FitnessNiKennethApp: App {
     @State private var workoutEngine = WorkoutEngine()
     @State private var watchService = WatchConnectivityService.shared
 
+    private let notificationDelegate = AppNotificationDelegate()
+
+    init() {
+        UNUserNotificationCenter.current().delegate = notificationDelegate
+    }
+
     var body: some Scene {
         WindowGroup {
             RootTabView()
                 .environment(workoutEngine)
                 .environment(watchService)
+                .task {
+                    await NotificationService.requestPermission()
+                }
         }
         .modelContainer(for: appSchema, isAutosaveEnabled: true) { result in
             switch result {

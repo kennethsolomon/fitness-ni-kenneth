@@ -146,6 +146,7 @@ final class WorkoutEngine {
             current.exercises[exIdx].sets[setIdx].completedAt = Date()
             let restSecs = current.exercises[exIdx].restSeconds
             session = current
+            NotificationService.hapticSetComplete()
             startRestTimer(seconds: restSecs, exerciseID: exerciseID)
         } else {
             current.exercises[exIdx].sets[setIdx].completedAt = nil
@@ -172,6 +173,8 @@ final class WorkoutEngine {
         isResting = true
         activeRestExerciseID = exerciseID
 
+        NotificationService.scheduleRestEnd(after: seconds)
+
         restTimerTask = Task { [weak self] in
             guard let self else { return }
             while restSecondsRemaining > 0 {
@@ -181,6 +184,7 @@ final class WorkoutEngine {
             }
             isResting = false
             activeRestExerciseID = nil
+            NotificationService.hapticRestComplete()
         }
     }
 
@@ -190,6 +194,7 @@ final class WorkoutEngine {
         restSecondsRemaining = 0
         isResting = false
         activeRestExerciseID = nil
+        NotificationService.cancelRestEnd()
     }
 
     func resetRestTimer(for exerciseID: UUID) {

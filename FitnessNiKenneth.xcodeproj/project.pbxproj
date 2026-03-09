@@ -26,6 +26,7 @@
 		79F66D5493FBF6AC98B50162 /* WatchSharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E3A9BCB566266EEB4E1DE /* WatchSharedTypes.swift */; };
 		7A3438B9759C1C15C5ED9FA3 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FAB3450F236C624DF5EDA /* HistoryView.swift */; };
 		7B9023B0EF749C1CE0A95870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27891E73F0E0AE16741FF32B /* Assets.xcassets */; };
+		81B0B2F5E92BCC009B696456 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60186C23C53ECFEAA0DC8545 /* NotificationService.swift */; };
 		912CE32C6E008BD6B0C9D83E /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56328F05A544829FE1EC0F /* ExerciseListView.swift */; };
 		AC9211FA407AE4C2EBE186E4 /* ActiveSetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE71D11B8594937AAD9CF86 /* ActiveSetRow.swift */; };
 		AF436119BED31B23F292A8CD /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46555C60BBE898B81ACB2E9 /* AnalyticsService.swift */; };
@@ -79,6 +80,7 @@
 		52B96682E17F0A3DC75BDD1D /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		56C3E2F27CA0CFD6550388F2 /* WorkoutFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFlowUITests.swift; sourceTree = "<group>"; };
 		5B15B94B3EBEC81B86E0EBC2 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		60186C23C53ECFEAA0DC8545 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		60C5CAC27C5E9C8211DD8B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		63C96EB713D2A36106A49770 /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
 		6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityService.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				F46555C60BBE898B81ACB2E9 /* AnalyticsService.swift */,
+				60186C23C53ECFEAA0DC8545 /* NotificationService.swift */,
 				B367CC86DE1208A33993D474 /* SeedDataService.swift */,
 				6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */,
 				3F059ECD28B0386D87DB6E2A /* WorkoutEngine.swift */,
@@ -494,6 +497,7 @@
 				0A388862894EEC1066FA8130 /* FinishWorkoutView.swift in Sources */,
 				E4624709CA4D5F16C0EE5F02 /* FitnessNiKennethApp.swift in Sources */,
 				7A3438B9759C1C15C5ED9FA3 /* HistoryView.swift in Sources */,
+				81B0B2F5E92BCC009B696456 /* NotificationService.swift in Sources */,
 				DF3AF04F32321BA22EAA7D0C /* RootTabView.swift in Sources */,
 				2AD02BF3C924B0B4C980358D /* SeedDataService.swift in Sources */,
 				4834CAC6F398CC9DAFA051DD /* SessionDetailView.swift in Sources */,

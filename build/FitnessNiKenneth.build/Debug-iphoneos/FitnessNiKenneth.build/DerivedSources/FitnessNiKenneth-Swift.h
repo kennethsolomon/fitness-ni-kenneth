@@ -282,6 +282,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import ObjectiveC;
+@import UserNotifications;
 @import WatchConnectivity;
 #endif
 
@@ -304,6 +305,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+
+@class UNUserNotificationCenter;
+@class UNNotification;
+/// Suppresses the rest-timer banner when the app is in the foreground
+/// (the in-app rest timer UI is already visible).
+/// All other notifications show normally.
+SWIFT_CLASS("_TtC16FitnessNiKenneth23AppNotificationDelegate")
+@interface AppNotificationDelegate : NSObject <UNUserNotificationCenterDelegate>
+- (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center willPresentNotification:(UNNotification * _Nonnull)notification withCompletionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 SWIFT_CLASS("_TtC16FitnessNiKenneth24WatchConnectivityService")
 @interface WatchConnectivityService : NSObject
