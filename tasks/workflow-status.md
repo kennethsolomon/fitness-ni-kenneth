@@ -5,11 +5,11 @@
 
 | # | Step | Status | Notes |
 |---|------|--------|-------|
-| 1 | /brainstorm | >> next << | |
-| 2 | /frontend-design | not yet | optional |
-| 3 | /write-plan | not yet | |
-| 4 | /execute-plan | not yet | |
-| 5 | /commit | not yet | |
+| 1 | /brainstorm | done | Active workout UI overhaul — 4 features |
+| 2 | /frontend-design | done | Cryo-Lab palette + icon spec |
+| 3 | /write-plan | done | 13 phases, 50 steps |
+| 4 | /execute-plan | done | Phases 1–12 complete; Phase 13 (icon) needs design tool |
+| 5 | /commit | >> next << | |
 | 6 | /write-tests | not yet | |
 | 7 | /commit | not yet | conditional |
 | 8 | /debug | not yet | optional |

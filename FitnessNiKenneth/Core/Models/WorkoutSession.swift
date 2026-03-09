@@ -104,6 +104,7 @@ final class WorkoutSet {
     var isCompleted: Bool
     var completedAt: Date?
     var unitRaw: String
+    var tagRaw: String
 
     var workoutExercise: WorkoutExercise?
 
@@ -113,7 +114,8 @@ final class WorkoutSet {
         order: Int,
         weight: Double = 0,
         reps: Int = 0,
-        unit: WeightUnit = .lbs
+        unit: WeightUnit = .lbs,
+        tag: SetTag = .normal
     ) {
         self.id = id
         self.order = order
@@ -122,11 +124,16 @@ final class WorkoutSet {
         self.isCompleted = false
         self.completedAt = nil
         self.unitRaw = unit.rawValue
+        self.tagRaw = tag.rawValue
         self.workoutExercise = workoutExercise
     }
 
     var unit: WeightUnit {
         WeightUnit(rawValue: unitRaw) ?? .lbs
+    }
+
+    var tag: SetTag {
+        SetTag(rawValue: tagRaw) ?? .normal
     }
 
     var estimated1RM: Double {

@@ -30,6 +30,7 @@ struct AnalyticsService: Sendable {
                             weight: set.weight,
                             reps: set.reps,
                             unit: set.unit,
+                            tag: set.tag,
                             sessionID: session.id,
                             sessionDate: finishedAt,
                             sessionName: session.name
@@ -186,6 +187,7 @@ struct AnalyticsService: Sendable {
                         weight: $0.weight,
                         reps: $0.reps,
                         unit: $0.unit,
+                        tag: $0.tag,
                         sessionID: session.id,
                         sessionDate: session.finishedAt ?? session.startedAt,
                         sessionName: session.name

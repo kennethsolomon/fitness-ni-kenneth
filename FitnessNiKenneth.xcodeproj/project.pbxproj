@@ -15,6 +15,7 @@
 		2FB2007ED03C81A270583603 /* WorkoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F059ECD28B0386D87DB6E2A /* WorkoutEngine.swift */; };
 		30B04AE585F1A811989CDC3E /* WorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01E149B3CAB176DF45A1433 /* WorkoutTemplate.swift */; };
 		33ED8AC64B7562C4802319D5 /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A11923EC9C70C3F2686BFB /* WorkoutSession.swift */; };
+		3FF6F34E345F98F50D0D0A0F /* TimerToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C246737BCD20B8898D7125F /* TimerToolbarButton.swift */; };
 		4042BBF1C029479DA88A1F85 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E10754C9D5556FFC446560 /* EmptyStateView.swift */; };
 		40FCBF25DC7505ECB2CFD68C /* WorkoutFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3E2F27CA0CFD6550388F2 /* WorkoutFlowUITests.swift */; };
 		4199802958043DC6356CE84B /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D8D20E75CE3261EE88E0F /* TemplateDetailView.swift */; };
@@ -34,6 +35,7 @@
 		C4330D68DBB296816C565ED9 /* ActiveWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1F644B36C7F43E814586A /* ActiveWorkoutView.swift */; };
 		C682DDF18C87D5FAF0FB89E1 /* PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C96EB713D2A36106A49770 /* PersistenceTests.swift */; };
 		CCFB3B1D4C379DBB59E38E5F /* FitnessNiKennethWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3E1FF62F0B9E5F6167524 /* FitnessNiKennethWatchApp.swift */; };
+		D14901AB3A8D1316AE7BB1BD /* RestTimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7F5D96A1E854A37118723 /* RestTimerSheet.swift */; };
 		D830DC2BF1A16B348DED9829 /* EditTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1FF87B7FAB750815C356 /* EditTemplateView.swift */; };
 		DF3AF04F32321BA22EAA7D0C /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2511DC7652E9D4F16D46EA3 /* RootTabView.swift */; };
 		E16851FE301B24340F029121 /* WatchConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */; };
@@ -73,6 +75,7 @@
 		2892036F4824187D90D019CA /* WorkoutEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEngineTests.swift; sourceTree = "<group>"; };
 		2CE9C626B040C9A1A7925A05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2ED73EA96D3A3F34BD620C60 /* WatchWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWorkoutView.swift; sourceTree = "<group>"; };
+		33E7F5D96A1E854A37118723 /* RestTimerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerSheet.swift; sourceTree = "<group>"; };
 		3A4D23E840F788687D9CB6B1 /* FinishWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishWorkoutView.swift; sourceTree = "<group>"; };
 		3F059ECD28B0386D87DB6E2A /* WorkoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEngine.swift; sourceTree = "<group>"; };
 		3F3EE3A4281C81E5FC890A98 /* SharedTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTypes.swift; sourceTree = "<group>"; };
@@ -80,13 +83,14 @@
 		52B96682E17F0A3DC75BDD1D /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		56C3E2F27CA0CFD6550388F2 /* WorkoutFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFlowUITests.swift; sourceTree = "<group>"; };
 		5B15B94B3EBEC81B86E0EBC2 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		5C246737BCD20B8898D7125F /* TimerToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerToolbarButton.swift; sourceTree = "<group>"; };
 		60186C23C53ECFEAA0DC8545 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		60C5CAC27C5E9C8211DD8B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		63C96EB713D2A36106A49770 /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
 		6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityService.swift; sourceTree = "<group>"; };
 		70557963661264C1F15BA363 /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 		74D1F644B36C7F43E814586A /* ActiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveWorkoutView.swift; sourceTree = "<group>"; };
-		77B0E4EEBFE44D10F055DFF2 /* FitnessNiKenneth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessNiKenneth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77B0E4EEBFE44D10F055DFF2 /* FitnessNiKenneth.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FitnessNiKenneth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AC6EEF1AD34B44A6C170B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		812C4ECB0353B3DD4A83C8DA /* ActiveExerciseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveExerciseSection.swift; sourceTree = "<group>"; };
 		8B5AFCADC1844B72CF58E4B2 /* AnalyticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsServiceTests.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				1DE71D11B8594937AAD9CF86 /* ActiveSetRow.swift */,
 				74D1F644B36C7F43E814586A /* ActiveWorkoutView.swift */,
 				3A4D23E840F788687D9CB6B1 /* FinishWorkoutView.swift */,
+				33E7F5D96A1E854A37118723 /* RestTimerSheet.swift */,
+				5C246737BCD20B8898D7125F /* TimerToolbarButton.swift */,
 			);
 			path = ActiveWorkout;
 			sourceTree = "<group>";
@@ -417,6 +423,9 @@
 					131C79C021C4E5A15B4D52FB = {
 						DevelopmentTeam = "";
 					};
+					1C77021D67CF33C5816E7F14 = {
+						DevelopmentTeam = "";
+					};
 					DEB273006BE3EF1AAC305386 = {
 						TestTargetID = 1C77021D67CF33C5816E7F14;
 					};
@@ -495,12 +504,14 @@
 				E4624709CA4D5F16C0EE5F02 /* FitnessNiKennethApp.swift in Sources */,
 				7A3438B9759C1C15C5ED9FA3 /* HistoryView.swift in Sources */,
 				81B0B2F5E92BCC009B696456 /* NotificationService.swift in Sources */,
+				D14901AB3A8D1316AE7BB1BD /* RestTimerSheet.swift in Sources */,
 				DF3AF04F32321BA22EAA7D0C /* RootTabView.swift in Sources */,
 				2AD02BF3C924B0B4C980358D /* SeedDataService.swift in Sources */,
 				4834CAC6F398CC9DAFA051DD /* SessionDetailView.swift in Sources */,
 				EBD61A1E0ECDC2D294733703 /* SharedTypes.swift in Sources */,
 				4CDE99FBB5A511545E2A5E30 /* StartWorkoutView.swift in Sources */,
 				4199802958043DC6356CE84B /* TemplateDetailView.swift in Sources */,
+				3FF6F34E345F98F50D0D0A0F /* TimerToolbarButton.swift in Sources */,
 				E16851FE301B24340F029121 /* WatchConnectivityService.swift in Sources */,
 				2FB2007ED03C81A270583603 /* WorkoutEngine.swift in Sources */,
 				33ED8AC64B7562C4802319D5 /* WorkoutSession.swift in Sources */,
@@ -586,7 +597,7 @@
 				CODE_SIGN_ENTITLEMENTS = FitnessNiKenneth/FitnessNiKenneth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CL4Z3C7CSV;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FitnessNiKenneth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -743,7 +754,7 @@
 				CODE_SIGN_ENTITLEMENTS = FitnessNiKenneth/FitnessNiKenneth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CL4Z3C7CSV;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FitnessNiKenneth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (

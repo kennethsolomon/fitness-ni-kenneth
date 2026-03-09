@@ -108,6 +108,31 @@ Key steps:
 4. Archive with **FitnessNiKenneth (Full)** scheme to embed Watch app
 5. Distribute via Xcode Organizer → TestFlight
 
+## Project Commands
+
+Available in `.claude/commands/`:
+
+| Command | Purpose |
+|---------|---------|
+| `/brainstorm` | Explore design before coding |
+| `/write-plan` | Write decision-complete plan → `tasks/todo.md` |
+| `/execute-plan` | Implement plan in batches, log to `tasks/progress.md` |
+| `/status` | Compact progress summary |
+| `/security-check` | Audit for OWASP Top 10 + production quality |
+| `/finish-feature` | Branch finalization + PR |
+| `/release` | App Store / TestFlight readiness audit |
+| `/features` | Sync `docs/features/` specs with codebase |
+
+## Documentation
+
+| File | Contents |
+|------|---------|
+| `docs/ARCHITECTURE.md` | Full system design reference |
+| `docs/RELEASE_CHECKLIST.md` | TestFlight + App Store steps |
+| `docs/EXERCISE_CONTENT.md` | Exercise library content strategy |
+| `tasks/findings.md` | Stack decisions + key paths |
+| `tasks/lessons.md` | Accumulated bug prevention lessons |
+
 ## Notes
 
 - No HealthKit in v1 (no permissions needed)

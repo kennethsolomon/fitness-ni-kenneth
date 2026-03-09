@@ -14,6 +14,33 @@ enum WeightUnit: String, Codable, CaseIterable, Sendable {
     }
 }
 
+// MARK: - Set Tag
+
+enum SetTag: String, Codable, CaseIterable, Sendable {
+    case normal  = "normal"
+    case warmup  = "warmup"
+    case dropSet = "dropSet"
+    case failure = "failure"
+
+    var displayLabel: String {
+        switch self {
+        case .normal:  "Normal"
+        case .warmup:  "Warm-up"
+        case .dropSet: "Drop Set"
+        case .failure: "Failure"
+        }
+    }
+
+    var badgeLabel: String {
+        switch self {
+        case .normal:  ""   // caller uses set number instead
+        case .warmup:  "W"
+        case .dropSet: "D"
+        case .failure: "F"
+        }
+    }
+}
+
 // MARK: - Muscle Group
 
 enum MuscleGroup: String, Codable, CaseIterable, Sendable {
@@ -33,19 +60,19 @@ enum MuscleGroup: String, Codable, CaseIterable, Sendable {
 
     var displayName: String {
         switch self {
-        case .chest: "Chest"
-        case .back: "Back"
-        case .shoulders: "Shoulders"
-        case .biceps: "Biceps"
-        case .triceps: "Triceps"
-        case .forearms: "Forearms"
-        case .quads: "Quads"
+        case .chest:      "Chest"
+        case .back:       "Back"
+        case .shoulders:  "Shoulders"
+        case .biceps:     "Biceps"
+        case .triceps:    "Triceps"
+        case .forearms:   "Forearms"
+        case .quads:      "Quads"
         case .hamstrings: "Hamstrings"
-        case .glutes: "Glutes"
-        case .calves: "Calves"
-        case .core: "Core"
-        case .traps: "Traps"
-        case .lats: "Lats"
+        case .glutes:     "Glutes"
+        case .calves:     "Calves"
+        case .core:       "Core"
+        case .traps:      "Traps"
+        case .lats:       "Lats"
         }
     }
 }
@@ -59,23 +86,23 @@ enum Equipment: String, Codable, CaseIterable, Sendable {
     case machine
     case bodyweight
     case kettlebell
-    case ezBar = "ez_bar"
-    case smithMachine = "smith_machine"
-    case resistanceBand = "resistance_band"
+    case ezBar           = "ez_bar"
+    case smithMachine    = "smith_machine"
+    case resistanceBand  = "resistance_band"
     case other
 
     var displayName: String {
         switch self {
-        case .barbell: "Barbell"
-        case .dumbbell: "Dumbbell"
-        case .cable: "Cable"
-        case .machine: "Machine"
-        case .bodyweight: "Bodyweight"
-        case .kettlebell: "Kettlebell"
-        case .ezBar: "EZ Bar"
-        case .smithMachine: "Smith Machine"
-        case .resistanceBand: "Resistance Band"
-        case .other: "Other"
+        case .barbell:       "Barbell"
+        case .dumbbell:      "Dumbbell"
+        case .cable:         "Cable"
+        case .machine:       "Machine"
+        case .bodyweight:    "Bodyweight"
+        case .kettlebell:    "Kettlebell"
+        case .ezBar:         "EZ Bar"
+        case .smithMachine:  "Smith Machine"
+        case .resistanceBand:"Resistance Band"
+        case .other:         "Other"
         }
     }
 }
@@ -93,12 +120,12 @@ enum MovementCategory: String, Codable, CaseIterable, Sendable {
 
     var displayName: String {
         switch self {
-        case .push: "Push"
-        case .pull: "Pull"
-        case .squat: "Squat"
-        case .hinge: "Hinge"
-        case .carry: "Carry"
-        case .core: "Core"
+        case .push:      "Push"
+        case .pull:      "Pull"
+        case .squat:     "Squat"
+        case .hinge:     "Hinge"
+        case .carry:     "Carry"
+        case .core:      "Core"
         case .isolation: "Isolation"
         }
     }
@@ -113,14 +140,22 @@ struct ActiveSet: Identifiable, Sendable {
     var isCompleted: Bool
     var completedAt: Date?
     var unit: WeightUnit
+    var tag: SetTag
 
-    init(id: UUID = UUID(), weight: Double = 0, reps: Int = 0, unit: WeightUnit = .lbs) {
+    init(
+        id: UUID = UUID(),
+        weight: Double = 0,
+        reps: Int = 0,
+        unit: WeightUnit = .lbs,
+        tag: SetTag = .normal
+    ) {
         self.id = id
         self.weight = weight
         self.reps = reps
         self.isCompleted = false
         self.completedAt = nil
         self.unit = unit
+        self.tag = tag
     }
 }
 
@@ -132,6 +167,7 @@ struct ActiveExercise: Identifiable, Sendable {
     var notes: String
     var restSeconds: Int
     var order: Int
+    var unit: WeightUnit
 
     init(
         id: UUID = UUID(),
@@ -140,7 +176,8 @@ struct ActiveExercise: Identifiable, Sendable {
         sets: [ActiveSet] = [],
         notes: String = "",
         restSeconds: Int = 90,
-        order: Int = 0
+        order: Int = 0,
+        unit: WeightUnit = .lbs
     ) {
         self.id = id
         self.exerciseID = exerciseID
@@ -149,6 +186,7 @@ struct ActiveExercise: Identifiable, Sendable {
         self.notes = notes
         self.restSeconds = restSeconds
         self.order = order
+        self.unit = unit
     }
 }
 
@@ -191,9 +229,28 @@ struct WorkoutSetSnapshot: Sendable {
     let weight: Double
     let reps: Int
     let unit: WeightUnit
+    let tag: SetTag
     let sessionID: UUID
     let sessionDate: Date
     let sessionName: String
+
+    init(
+        weight: Double,
+        reps: Int,
+        unit: WeightUnit,
+        tag: SetTag = .normal,
+        sessionID: UUID,
+        sessionDate: Date,
+        sessionName: String
+    ) {
+        self.weight = weight
+        self.reps = reps
+        self.unit = unit
+        self.tag = tag
+        self.sessionID = sessionID
+        self.sessionDate = sessionDate
+        self.sessionName = sessionName
+    }
 
     var estimated1RM: Double {
         AnalyticsFormulas.epleyOneRepMax(weight: weight, reps: reps)
@@ -233,15 +290,15 @@ enum AnalyticsFormulas {
 // MARK: - Watch Message Keys
 
 enum WatchMessageKey {
-    static let type = "type"
-    static let workoutName = "workoutName"
-    static let elapsedSeconds = "elapsedSeconds"
-    static let currentExercise = "currentExercise"
-    static let currentSet = "currentSet"
-    static let totalSets = "totalSets"
+    static let type                 = "type"
+    static let workoutName          = "workoutName"
+    static let elapsedSeconds       = "elapsedSeconds"
+    static let currentExercise      = "currentExercise"
+    static let currentSet           = "currentSet"
+    static let totalSets            = "totalSets"
     static let restSecondsRemaining = "restSecondsRemaining"
-    static let isResting = "isResting"
-    static let isActive = "isActive"
+    static let isResting            = "isResting"
+    static let isActive             = "isActive"
 }
 
 enum WatchMessageType: String {

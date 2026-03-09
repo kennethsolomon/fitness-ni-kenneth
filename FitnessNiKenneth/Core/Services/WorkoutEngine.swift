@@ -14,6 +14,7 @@ final class WorkoutEngine {
     private(set) var session: ActiveSession?
     private(set) var elapsedSeconds: Int = 0
     private(set) var restSecondsRemaining: Int = 0
+    private(set) var restTotalSeconds: Int = 0
     private(set) var isResting: Bool = false
     private(set) var activeRestExerciseID: UUID?
 
@@ -170,6 +171,7 @@ final class WorkoutEngine {
         cancelRestTimer()
         guard seconds > 0 else { return }
         restSecondsRemaining = seconds
+        restTotalSeconds = seconds
         isResting = true
         activeRestExerciseID = exerciseID
 
@@ -188,19 +190,73 @@ final class WorkoutEngine {
         }
     }
 
+    func startRestTimer(seconds: Int) {
+        cancelRestTimer()
+        guard seconds > 0 else { return }
+        restSecondsRemaining = seconds
+        restTotalSeconds = seconds
+        isResting = true
+        activeRestExerciseID = nil
+
+        NotificationService.scheduleRestEnd(after: seconds)
+
+        restTimerTask = Task { [weak self] in
+            guard let self else { return }
+            while restSecondsRemaining > 0 {
+                try? await Task.sleep(for: .seconds(1))
+                if Task.isCancelled { return }
+                restSecondsRemaining -= 1
+            }
+            isResting = false
+            activeRestExerciseID = nil
+            NotificationService.hapticRestComplete()
+        }
+    }
+
+    func adjustRestTimer(by delta: Int) {
+        guard isResting else { return }
+        let newValue = max(1, min(3600, restSecondsRemaining + delta))
+        restSecondsRemaining = newValue
+        NotificationService.cancelRestEnd()
+        NotificationService.scheduleRestEnd(after: newValue)
+    }
+
     func cancelRestTimer() {
         restTimerTask?.cancel()
         restTimerTask = nil
         restSecondsRemaining = 0
+        restTotalSeconds = 0
         isResting = false
         activeRestExerciseID = nil
         NotificationService.cancelRestEnd()
     }
 
     func resetRestTimer(for exerciseID: UUID) {
-        guard var current = session,
+        guard let current = session,
               let exercise = current.exercises.first(where: { $0.id == exerciseID }) else { return }
         startRestTimer(seconds: exercise.restSeconds, exerciseID: exerciseID)
+    }
+
+    func updateSetTag(setID: UUID, exerciseID: UUID, tag: SetTag) {
+        guard var current = session,
+              let exIdx = current.exercises.firstIndex(where: { $0.id == exerciseID }),
+              let setIdx = current.exercises[exIdx].sets.firstIndex(where: { $0.id == setID }) else { return }
+        current.exercises[exIdx].sets[setIdx].tag = tag
+        session = current
+    }
+
+    func updateExerciseUnit(id: UUID, unit: WeightUnit) {
+        guard var current = session,
+              let exIdx = current.exercises.firstIndex(where: { $0.id == id }) else { return }
+        let currentUnit = current.exercises[exIdx].unit
+        guard currentUnit != unit else { return }
+        for setIdx in current.exercises[exIdx].sets.indices {
+            let oldWeight = current.exercises[exIdx].sets[setIdx].weight
+            current.exercises[exIdx].sets[setIdx].weight = currentUnit.convert(oldWeight, to: unit)
+            current.exercises[exIdx].sets[setIdx].unit = unit
+        }
+        current.exercises[exIdx].unit = unit
+        session = current
     }
 
     // MARK: - Finish / Cancel
@@ -244,7 +300,8 @@ final class WorkoutEngine {
                     order: index,
                     weight: activeSet.weight,
                     reps: activeSet.reps,
-                    unit: activeSet.unit
+                    unit: activeSet.unit,
+                    tag: activeSet.tag
                 )
                 workoutSet.isCompleted = activeSet.isCompleted
                 workoutSet.completedAt = activeSet.completedAt

@@ -13,9 +13,13 @@ struct ActiveExerciseSection: View {
     var body: some View {
         VStack(spacing: 0) {
             exerciseHeader
-            Divider().padding(.horizontal, AppTheme.Spacing.regular)
+            Divider()
+                .background(AppTheme.Colors.separator)
+                .padding(.horizontal, AppTheme.Spacing.regular)
             columnHeader
-            Divider().padding(.horizontal, AppTheme.Spacing.regular)
+            Divider()
+                .background(AppTheme.Colors.separator)
+                .padding(.horizontal, AppTheme.Spacing.regular)
 
             ForEach(Array(exercise.sets.enumerated()), id: \.element.id) { index, set in
                 ActiveSetRow(
@@ -29,6 +33,7 @@ struct ActiveExerciseSection: View {
 
                 if index < exercise.sets.count - 1 {
                     Divider()
+                        .background(AppTheme.Colors.separator)
                         .padding(.horizontal, AppTheme.Spacing.regular)
                 }
             }
@@ -37,29 +42,14 @@ struct ActiveExerciseSection: View {
         }
         .background(AppTheme.Colors.secondaryBackground)
         .clipShape(RoundedRectangle(cornerRadius: AppTheme.CornerRadius.large))
-        .shadow(color: .black.opacity(0.04), radius: 4, x: 0, y: 2)
+        .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 3)
     }
 
     private var exerciseHeader: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(exercise.exerciseName)
-                    .font(AppTheme.Typography.headline)
-
-                if workoutEngine.isResting && workoutEngine.activeRestExerciseID == exercise.id {
-                    HStack(spacing: 4) {
-                        Image(systemName: "timer")
-                            .font(AppTheme.Typography.caption)
-                        Text(workoutEngine.restSecondsRemaining.restTimerFormatted)
-                            .font(AppTheme.Typography.caption.monospacedDigit())
-                    }
-                    .foregroundStyle(AppTheme.Colors.restTimerActive)
-                } else {
-                    Text("Rest: \(exercise.restSeconds.restTimerFormatted)")
-                        .font(AppTheme.Typography.caption)
-                        .foregroundStyle(AppTheme.Colors.secondary)
-                }
-            }
+            Text(exercise.exerciseName)
+                .font(AppTheme.Typography.headline)
+                .foregroundStyle(AppTheme.Colors.iceCold)
 
             Spacer()
 
@@ -76,10 +66,20 @@ struct ActiveExerciseSection: View {
                     Label("Set Rest Timer", systemImage: "timer")
                 }
 
+                let toggleUnit: WeightUnit = exercise.unit == .lbs ? .kg : .lbs
+                Button {
+                    workoutEngine.updateExerciseUnit(id: exercise.id, unit: toggleUnit)
+                } label: {
+                    Label(
+                        "Switch to \(toggleUnit.label.uppercased())",
+                        systemImage: "arrow.triangle.2.circlepath"
+                    )
+                }
+
                 Button {
                     showReplaceExercise = true
                 } label: {
-                    Label("Replace Exercise", systemImage: "arrow.triangle.2.circlepath")
+                    Label("Replace Exercise", systemImage: "arrow.left.arrow.right")
                 }
 
                 Button(role: .destructive) {
@@ -126,16 +126,16 @@ struct ActiveExerciseSection: View {
             Spacer()
             Text("PREVIOUS")
                 .frame(maxWidth: .infinity, alignment: .center)
-            Text("LBS")
+            Text(exercise.unit.label.uppercased())
                 .frame(width: 72, alignment: .center)
             Text("REPS")
                 .frame(width: 60, alignment: .center)
             Text("")
                 .frame(width: 36)
         }
-        .font(.system(size: 11, weight: .semibold))
+        .font(AppTheme.Typography.columnHeader)
         .foregroundStyle(AppTheme.Colors.secondary)
-        .tracking(0.5)
+        .tracking(1.2)
         .padding(.horizontal, AppTheme.Spacing.regular)
         .padding(.vertical, AppTheme.Spacing.xSmall)
         .background(AppTheme.Colors.tertiaryBackground)
@@ -150,8 +150,13 @@ struct ActiveExerciseSection: View {
             HStack {
                 Image(systemName: "plus")
                     .font(AppTheme.Typography.subheadline)
-                Text("Add Set")
-                    .font(AppTheme.Typography.subheadline)
+                if exercise.restSeconds > 0 {
+                    Text("Add Set (\(exercise.restSeconds.restTimerFormatted))")
+                        .font(AppTheme.Typography.subheadline)
+                } else {
+                    Text("Add Set")
+                        .font(AppTheme.Typography.subheadline)
+                }
             }
             .foregroundStyle(AppTheme.Colors.accent)
             .frame(maxWidth: .infinity)
@@ -193,11 +198,13 @@ struct ExerciseNotesSheet: View {
             VStack(alignment: .leading, spacing: AppTheme.Spacing.regular) {
                 TextEditor(text: $notes)
                     .font(AppTheme.Typography.body)
+                    .foregroundStyle(AppTheme.Colors.primary)
                     .padding(AppTheme.Spacing.small)
                     .background(AppTheme.Colors.secondaryBackground)
                     .clipShape(RoundedRectangle(cornerRadius: AppTheme.CornerRadius.medium))
             }
             .padding(AppTheme.Spacing.regular)
+            .background(AppTheme.Colors.background)
             .navigationTitle("\(exercise.exerciseName) Notes")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -213,6 +220,7 @@ struct ExerciseNotesSheet: View {
                 }
             }
             .onAppear { notes = exercise.notes }
+            .preferredColorScheme(.dark)
         }
     }
 }

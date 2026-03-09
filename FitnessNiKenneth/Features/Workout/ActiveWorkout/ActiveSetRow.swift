@@ -1,5 +1,63 @@
 import SwiftUI
 
+// MARK: - SetBadgeView
+
+struct SetBadgeView: View {
+    let set: ActiveSet
+    let setNumber: Int
+
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 8)
+                .fill(badgeBackground)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(badgeBorder, lineWidth: 1)
+                )
+
+            Text(badgeText)
+                .font(.system(size: 13, weight: .bold, design: .rounded))
+                .foregroundStyle(badgeForeground)
+        }
+        .frame(width: 28, height: 28)
+        .animation(.spring(response: 0.25, dampingFraction: 0.65), value: set.tag)
+    }
+
+    private var badgeText: String {
+        let tag = set.tag
+        return tag == .normal ? "\(setNumber)" : tag.badgeLabel
+    }
+
+    private var badgeBackground: Color {
+        switch set.tag {
+        case .normal:  AppTheme.Colors.tertiaryBackground
+        case .warmup:  AppTheme.Colors.warmupBadge.opacity(0.2)
+        case .dropSet: AppTheme.Colors.dropSetBadge.opacity(0.2)
+        case .failure: AppTheme.Colors.failureBadge.opacity(0.3)
+        }
+    }
+
+    private var badgeForeground: Color {
+        switch set.tag {
+        case .normal:  AppTheme.Colors.primary
+        case .warmup:  AppTheme.Colors.warmupBadge
+        case .dropSet: AppTheme.Colors.dropSetBadge
+        case .failure: AppTheme.Colors.failureBadge
+        }
+    }
+
+    private var badgeBorder: Color {
+        switch set.tag {
+        case .normal:  Color.clear
+        case .warmup:  AppTheme.Colors.warmupBadge.opacity(0.4)
+        case .dropSet: AppTheme.Colors.dropSetBadge.opacity(0.4)
+        case .failure: AppTheme.Colors.failureBadge.opacity(0.5)
+        }
+    }
+}
+
+// MARK: - ActiveSetRow
+
 struct ActiveSetRow: View {
 
     let set: ActiveSet
@@ -17,19 +75,39 @@ struct ActiveSetRow: View {
 
     var body: some View {
         HStack(spacing: AppTheme.Spacing.xSmall) {
-            // Set number
-            Text("\(setNumber)")
-                .font(AppTheme.Typography.setNumber)
-                .foregroundStyle(set.isCompleted ? AppTheme.Colors.completedSet : AppTheme.Colors.secondary)
-                .frame(width: 36, alignment: .center)
+            // Set badge with context menu
+            SetBadgeView(set: set, setNumber: setNumber)
+                .contextMenu {
+                    Button {
+                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .normal)
+                    } label: {
+                        Label("Normal", systemImage: "1.circle")
+                    }
+                    Button {
+                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .warmup)
+                    } label: {
+                        Label("Warm-up", systemImage: "flame")
+                    }
+                    Button {
+                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .dropSet)
+                    } label: {
+                        Label("Drop Set", systemImage: "arrow.down.circle")
+                    }
+                    Button {
+                        workoutEngine.updateSetTag(setID: set.id, exerciseID: exerciseID, tag: .failure)
+                    } label: {
+                        Label("Failure", systemImage: "exclamationmark.circle")
+                    }
+                }
 
             // Previous
             if let prev = previousPerformance {
-                Text(prev.weight > 0 ? "\(Int(prev.weight)) × \(prev.reps)" : "\(prev.reps) reps")
+                Text(previousText(prev))
                     .font(AppTheme.Typography.footnote)
                     .foregroundStyle(AppTheme.Colors.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             } else {
                 Text("–")
                     .font(AppTheme.Typography.footnote)
@@ -38,46 +116,54 @@ struct ActiveSetRow: View {
             }
 
             // Weight input
-            HStack(spacing: 4) {
-                TextField("0", text: $weightText)
-                    .keyboardType(.decimalPad)
-                    .multilineTextAlignment(.center)
-                    .font(AppTheme.Typography.weightInput)
-                    .focused($weightFocused)
-                    .frame(width: 52)
-                    .padding(.vertical, 6)
-                    .background(
-                        set.isCompleted
-                            ? AppTheme.Colors.completedSet.opacity(0.12)
-                            : AppTheme.Colors.tertiaryBackground
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: AppTheme.CornerRadius.small))
-                    .onChange(of: weightFocused) { _, focused in
-                        if !focused { commitEdit() }
+            TextField("0", text: $weightText)
+                .keyboardType(.decimalPad)
+                .multilineTextAlignment(.center)
+                .font(AppTheme.Typography.weightInput)
+                .foregroundStyle(AppTheme.Colors.primary)
+                .focused($weightFocused)
+                .frame(width: 52)
+                .padding(.vertical, 6)
+                .background(
+                    set.isCompleted
+                        ? AppTheme.Colors.completedSet.opacity(0.12)
+                        : AppTheme.Colors.tertiaryBackground
+                )
+                .clipShape(RoundedRectangle(cornerRadius: AppTheme.CornerRadius.small))
+                .onChange(of: weightFocused) { _, focused in
+                    if !focused { commitEdit() }
+                }
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            weightFocused = false
+                            repsFocused = false
+                        }
+                        .foregroundStyle(AppTheme.Colors.accent)
                     }
-            }
-            .frame(width: 72)
+                }
+                .frame(width: 72)
 
             // Reps input
-            HStack(spacing: 4) {
-                TextField("0", text: $repsText)
-                    .keyboardType(.numberPad)
-                    .multilineTextAlignment(.center)
-                    .font(AppTheme.Typography.weightInput)
-                    .focused($repsFocused)
-                    .frame(width: 44)
-                    .padding(.vertical, 6)
-                    .background(
-                        set.isCompleted
-                            ? AppTheme.Colors.completedSet.opacity(0.12)
-                            : AppTheme.Colors.tertiaryBackground
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: AppTheme.CornerRadius.small))
-                    .onChange(of: repsFocused) { _, focused in
-                        if !focused { commitEdit() }
-                    }
-            }
-            .frame(width: 60)
+            TextField("0", text: $repsText)
+                .keyboardType(.numberPad)
+                .multilineTextAlignment(.center)
+                .font(AppTheme.Typography.weightInput)
+                .foregroundStyle(AppTheme.Colors.primary)
+                .focused($repsFocused)
+                .frame(width: 44)
+                .padding(.vertical, 6)
+                .background(
+                    set.isCompleted
+                        ? AppTheme.Colors.completedSet.opacity(0.12)
+                        : AppTheme.Colors.tertiaryBackground
+                )
+                .clipShape(RoundedRectangle(cornerRadius: AppTheme.CornerRadius.small))
+                .onChange(of: repsFocused) { _, focused in
+                    if !focused { commitEdit() }
+                }
+                .frame(width: 60)
 
             // Complete button + PR badge
             ZStack(alignment: .topTrailing) {
@@ -114,9 +200,21 @@ struct ActiveSetRow: View {
         }
     }
 
+    private func previousText(_ prev: WorkoutSetSnapshot) -> String {
+        var base = prev.weight > 0
+            ? "\(Int(prev.weight)) \(prev.unit.label) × \(prev.reps)"
+            : "\(prev.reps) reps"
+        if prev.tag != .normal {
+            base += " (\(prev.tag.badgeLabel))"
+        }
+        return base
+    }
+
     private func syncFields() {
         if set.weight > 0 {
-            weightText = set.weight == set.weight.rounded() ? "\(Int(set.weight))" : String(format: "%.1f", set.weight)
+            weightText = set.weight == set.weight.rounded()
+                ? "\(Int(set.weight))"
+                : String(format: "%.1f", set.weight)
         } else {
             weightText = ""
         }
