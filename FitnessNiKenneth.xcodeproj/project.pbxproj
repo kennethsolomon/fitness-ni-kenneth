@@ -1,0 +1,870 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A388862894EEC1066FA8130 /* FinishWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D23E840F788687D9CB6B1 /* FinishWorkoutView.swift */; };
+		1279B471DC029E5FBFEC81D5 /* ActiveExerciseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812C4ECB0353B3DD4A83C8DA /* ActiveExerciseSection.swift */; };
+		16D1ADFFAF1842C52754DDD9 /* WatchWorkoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF12617774589CF6DBC9A2C /* WatchWorkoutEngine.swift */; };
+		1DCFD98C4D120F1A0E338096 /* WatchWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED73EA96D3A3F34BD620C60 /* WatchWorkoutView.swift */; };
+		2AD02BF3C924B0B4C980358D /* SeedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B367CC86DE1208A33993D474 /* SeedDataService.swift */; };
+		2FB2007ED03C81A270583603 /* WorkoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F059ECD28B0386D87DB6E2A /* WorkoutEngine.swift */; };
+		30B04AE585F1A811989CDC3E /* WorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01E149B3CAB176DF45A1433 /* WorkoutTemplate.swift */; };
+		33ED8AC64B7562C4802319D5 /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A11923EC9C70C3F2686BFB /* WorkoutSession.swift */; };
+		4042BBF1C029479DA88A1F85 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E10754C9D5556FFC446560 /* EmptyStateView.swift */; };
+		40FCBF25DC7505ECB2CFD68C /* WorkoutFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3E2F27CA0CFD6550388F2 /* WorkoutFlowUITests.swift */; };
+		4199802958043DC6356CE84B /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D8D20E75CE3261EE88E0F /* TemplateDetailView.swift */; };
+		4834CAC6F398CC9DAFA051DD /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDF6CE70D5C2A8CD1B7A4BF /* SessionDetailView.swift */; };
+		4CDE99FBB5A511545E2A5E30 /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70557963661264C1F15BA363 /* StartWorkoutView.swift */; };
+		6CB941EDEFF26CC54ED8431C /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9E3223AEE4432CCBD1F575 /* AppButton.swift */; };
+		73807294452AEDE7CE49EF02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF92D7B249C1863B9942BE64 /* Assets.xcassets */; };
+		779623A09F55972C6AF400E6 /* AnalyticsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AFCADC1844B72CF58E4B2 /* AnalyticsServiceTests.swift */; };
+		79F66D5493FBF6AC98B50162 /* WatchSharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E3A9BCB566266EEB4E1DE /* WatchSharedTypes.swift */; };
+		7A3438B9759C1C15C5ED9FA3 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26FAB3450F236C624DF5EDA /* HistoryView.swift */; };
+		7B9023B0EF749C1CE0A95870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27891E73F0E0AE16741FF32B /* Assets.xcassets */; };
+		912CE32C6E008BD6B0C9D83E /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56328F05A544829FE1EC0F /* ExerciseListView.swift */; };
+		AC9211FA407AE4C2EBE186E4 /* ActiveSetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE71D11B8594937AAD9CF86 /* ActiveSetRow.swift */; };
+		AF436119BED31B23F292A8CD /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46555C60BBE898B81ACB2E9 /* AnalyticsService.swift */; };
+		B3B029C66790B624E009222E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264B7C0171AB7E3FF9CD7F64 /* CalendarView.swift */; };
+		C4330D68DBB296816C565ED9 /* ActiveWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1F644B36C7F43E814586A /* ActiveWorkoutView.swift */; };
+		C682DDF18C87D5FAF0FB89E1 /* PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C96EB713D2A36106A49770 /* PersistenceTests.swift */; };
+		CCFB3B1D4C379DBB59E38E5F /* FitnessNiKennethWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3E1FF62F0B9E5F6167524 /* FitnessNiKennethWatchApp.swift */; };
+		D830DC2BF1A16B348DED9829 /* EditTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB1FF87B7FAB750815C356 /* EditTemplateView.swift */; };
+		DF3AF04F32321BA22EAA7D0C /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2511DC7652E9D4F16D46EA3 /* RootTabView.swift */; };
+		E16851FE301B24340F029121 /* WatchConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */; };
+		E3D4F338B02E93F87E01DAC4 /* WorkoutEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892036F4824187D90D019CA /* WorkoutEngineTests.swift */; };
+		E4624709CA4D5F16C0EE5F02 /* FitnessNiKennethApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA67D3060A600F25586FC76 /* FitnessNiKennethApp.swift */; };
+		E7FDDFD370530414475AAD05 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B96682E17F0A3DC75BDD1D /* ExerciseDetailView.swift */; };
+		EBD61A1E0ECDC2D294733703 /* SharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3EE3A4281C81E5FC890A98 /* SharedTypes.swift */; };
+		ED95025237B42DE8F1DED2E1 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95267B844FD1038C8D6DF26 /* AppTheme.swift */; };
+		F43275F3A16646880957C619 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15B94B3EBEC81B86E0EBC2 /* Exercise.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		19683C0BB421CA70593CB460 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EB0AB611AD7566F79B1D767 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C77021D67CF33C5816E7F14;
+			remoteInfo = FitnessNiKenneth;
+		};
+		BB72B734BA25763997BFE2E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EB0AB611AD7566F79B1D767 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C77021D67CF33C5816E7F14;
+			remoteInfo = FitnessNiKenneth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15E10754C9D5556FFC446560 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		1ACD4809AEDBEC4668C416B9 /* FitnessNiKennethTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FitnessNiKennethTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AF12617774589CF6DBC9A2C /* WatchWorkoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWorkoutEngine.swift; sourceTree = "<group>"; };
+		1DA67D3060A600F25586FC76 /* FitnessNiKennethApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessNiKennethApp.swift; sourceTree = "<group>"; };
+		1DE71D11B8594937AAD9CF86 /* ActiveSetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSetRow.swift; sourceTree = "<group>"; };
+		264B7C0171AB7E3FF9CD7F64 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		27891E73F0E0AE16741FF32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2892036F4824187D90D019CA /* WorkoutEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEngineTests.swift; sourceTree = "<group>"; };
+		2CE9C626B040C9A1A7925A05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2ED73EA96D3A3F34BD620C60 /* WatchWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWorkoutView.swift; sourceTree = "<group>"; };
+		3A4D23E840F788687D9CB6B1 /* FinishWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishWorkoutView.swift; sourceTree = "<group>"; };
+		3F059ECD28B0386D87DB6E2A /* WorkoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEngine.swift; sourceTree = "<group>"; };
+		3F3EE3A4281C81E5FC890A98 /* SharedTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTypes.swift; sourceTree = "<group>"; };
+		41A11923EC9C70C3F2686BFB /* WorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
+		52B96682E17F0A3DC75BDD1D /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
+		56C3E2F27CA0CFD6550388F2 /* WorkoutFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFlowUITests.swift; sourceTree = "<group>"; };
+		5B15B94B3EBEC81B86E0EBC2 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		60C5CAC27C5E9C8211DD8B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		63C96EB713D2A36106A49770 /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
+		6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityService.swift; sourceTree = "<group>"; };
+		70557963661264C1F15BA363 /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
+		74D1F644B36C7F43E814586A /* ActiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveWorkoutView.swift; sourceTree = "<group>"; };
+		77B0E4EEBFE44D10F055DFF2 /* FitnessNiKenneth.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FitnessNiKenneth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78AC6EEF1AD34B44A6C170B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		812C4ECB0353B3DD4A83C8DA /* ActiveExerciseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveExerciseSection.swift; sourceTree = "<group>"; };
+		8B5AFCADC1844B72CF58E4B2 /* AnalyticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsServiceTests.swift; sourceTree = "<group>"; };
+		A21ADCC464AACED1496AB6CA /* FitnessNiKenneth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitnessNiKenneth.entitlements; sourceTree = "<group>"; };
+		A28E3A9BCB566266EEB4E1DE /* WatchSharedTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSharedTypes.swift; sourceTree = "<group>"; };
+		B2511DC7652E9D4F16D46EA3 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		B367CC86DE1208A33993D474 /* SeedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedDataService.swift; sourceTree = "<group>"; };
+		BEFB1FF87B7FAB750815C356 /* EditTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTemplateView.swift; sourceTree = "<group>"; };
+		BF92D7B249C1863B9942BE64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFB3E1FF62F0B9E5F6167524 /* FitnessNiKennethWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessNiKennethWatchApp.swift; sourceTree = "<group>"; };
+		C01E149B3CAB176DF45A1433 /* WorkoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplate.swift; sourceTree = "<group>"; };
+		C8CC5B7D6F75DB4D7CA94DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CC9E3223AEE4432CCBD1F575 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		CFDF6CE70D5C2A8CD1B7A4BF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		D26FAB3450F236C624DF5EDA /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		D44D8D20E75CE3261EE88E0F /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
+		DD9DE53A18338018B5B3EB48 /* FitnessNiKenneth WatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitnessNiKenneth WatchApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95267B844FD1038C8D6DF26 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		ED56328F05A544829FE1EC0F /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
+		F46555C60BBE898B81ACB2E9 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		FBECA1C9A19181C56BD1DA30 /* FitnessNiKennethUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FitnessNiKennethUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		057FB11B90AC6C16529419A7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BFB3E1FF62F0B9E5F6167524 /* FitnessNiKennethWatchApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1B563A9BCA340C6BDCEC372F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A28E3A9BCB566266EEB4E1DE /* WatchSharedTypes.swift */,
+				1AF12617774589CF6DBC9A2C /* WatchWorkoutEngine.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1F67998A623E69F300B8B94F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2ED73EA96D3A3F34BD620C60 /* WatchWorkoutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AA25EB373818635334AA27F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F46555C60BBE898B81ACB2E9 /* AnalyticsService.swift */,
+				B367CC86DE1208A33993D474 /* SeedDataService.swift */,
+				6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */,
+				3F059ECD28B0386D87DB6E2A /* WorkoutEngine.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2D64617704A711C7F252724C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CC9E3223AEE4432CCBD1F575 /* AppButton.swift */,
+				15E10754C9D5556FFC446560 /* EmptyStateView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		34282C5133A7CDF37BA06CE5 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				BEFB1FF87B7FAB750815C356 /* EditTemplateView.swift */,
+				D44D8D20E75CE3261EE88E0F /* TemplateDetailView.swift */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		4AB0A2B2703C80B155590123 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DE53A18338018B5B3EB48 /* FitnessNiKenneth WatchApp.app */,
+				77B0E4EEBFE44D10F055DFF2 /* FitnessNiKenneth.app */,
+				1ACD4809AEDBEC4668C416B9 /* FitnessNiKennethTests.xctest */,
+				FBECA1C9A19181C56BD1DA30 /* FitnessNiKennethUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DEBE167F276CCB3179EEF1C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				FD0BFCCF8C2DE7F3EF35DF91 /* Exercises */,
+				6B5B2F6378ABF1A5CBF780A1 /* History */,
+				AC4AC01F0580B46DF41592CA /* Workout */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		51A3461462BCEA46E96757F6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				780FD68804E57556D52665F5 /* Design */,
+				CD52D83EEC39422F7868B5AE /* Models */,
+				2AA25EB373818635334AA27F /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		6B5B2F6378ABF1A5CBF780A1 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				264B7C0171AB7E3FF9CD7F64 /* CalendarView.swift */,
+				D26FAB3450F236C624DF5EDA /* HistoryView.swift */,
+				CFDF6CE70D5C2A8CD1B7A4BF /* SessionDetailView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		6CDFC84C65C1B7316AF1B4CF /* ActiveWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				812C4ECB0353B3DD4A83C8DA /* ActiveExerciseSection.swift */,
+				1DE71D11B8594937AAD9CF86 /* ActiveSetRow.swift */,
+				74D1F644B36C7F43E814586A /* ActiveWorkoutView.swift */,
+				3A4D23E840F788687D9CB6B1 /* FinishWorkoutView.swift */,
+			);
+			path = ActiveWorkout;
+			sourceTree = "<group>";
+		};
+		780FD68804E57556D52665F5 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				E95267B844FD1038C8D6DF26 /* AppTheme.swift */,
+				2D64617704A711C7F252724C /* Components */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		A631617D2C2029AF5F60ABD5 /* FitnessNiKennethTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B5AFCADC1844B72CF58E4B2 /* AnalyticsServiceTests.swift */,
+				60C5CAC27C5E9C8211DD8B10 /* Info.plist */,
+				63C96EB713D2A36106A49770 /* PersistenceTests.swift */,
+				2892036F4824187D90D019CA /* WorkoutEngineTests.swift */,
+			);
+			path = FitnessNiKennethTests;
+			sourceTree = "<group>";
+		};
+		AC4AC01F0580B46DF41592CA /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				6CDFC84C65C1B7316AF1B4CF /* ActiveWorkout */,
+				70557963661264C1F15BA363 /* StartWorkoutView.swift */,
+				34282C5133A7CDF37BA06CE5 /* Templates */,
+			);
+			path = Workout;
+			sourceTree = "<group>";
+		};
+		AF62100063722F9DEA258B16 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27891E73F0E0AE16741FF32B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C743FA4B5CB0BC92ED1AB4B8 /* FitnessNiKennethWatch */ = {
+			isa = PBXGroup;
+			children = (
+				057FB11B90AC6C16529419A7 /* App */,
+				BF92D7B249C1863B9942BE64 /* Assets.xcassets */,
+				78AC6EEF1AD34B44A6C170B4 /* Info.plist */,
+				1B563A9BCA340C6BDCEC372F /* Services */,
+				1F67998A623E69F300B8B94F /* Views */,
+			);
+			path = FitnessNiKennethWatch;
+			sourceTree = "<group>";
+		};
+		C9EFC090CE59B26AAAAEA0B4 = {
+			isa = PBXGroup;
+			children = (
+				FE57BE7DD6EDD8E573EFFBE0 /* FitnessNiKenneth */,
+				A631617D2C2029AF5F60ABD5 /* FitnessNiKennethTests */,
+				EE14E570C576A1A86D3C1E54 /* FitnessNiKennethUITests */,
+				C743FA4B5CB0BC92ED1AB4B8 /* FitnessNiKennethWatch */,
+				4AB0A2B2703C80B155590123 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD52D83EEC39422F7868B5AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B15B94B3EBEC81B86E0EBC2 /* Exercise.swift */,
+				3F3EE3A4281C81E5FC890A98 /* SharedTypes.swift */,
+				41A11923EC9C70C3F2686BFB /* WorkoutSession.swift */,
+				C01E149B3CAB176DF45A1433 /* WorkoutTemplate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EE14E570C576A1A86D3C1E54 /* FitnessNiKennethUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2CE9C626B040C9A1A7925A05 /* Info.plist */,
+				56C3E2F27CA0CFD6550388F2 /* WorkoutFlowUITests.swift */,
+			);
+			path = FitnessNiKennethUITests;
+			sourceTree = "<group>";
+		};
+		F72A0A9D44CF907670E47739 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1DA67D3060A600F25586FC76 /* FitnessNiKennethApp.swift */,
+				B2511DC7652E9D4F16D46EA3 /* RootTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FD0BFCCF8C2DE7F3EF35DF91 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				52B96682E17F0A3DC75BDD1D /* ExerciseDetailView.swift */,
+				ED56328F05A544829FE1EC0F /* ExerciseListView.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
+		FE57BE7DD6EDD8E573EFFBE0 /* FitnessNiKenneth */ = {
+			isa = PBXGroup;
+			children = (
+				F72A0A9D44CF907670E47739 /* App */,
+				51A3461462BCEA46E96757F6 /* Core */,
+				4DEBE167F276CCB3179EEF1C /* Features */,
+				A21ADCC464AACED1496AB6CA /* FitnessNiKenneth.entitlements */,
+				C8CC5B7D6F75DB4D7CA94DB0 /* Info.plist */,
+				AF62100063722F9DEA258B16 /* Resources */,
+			);
+			path = FitnessNiKenneth;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		131C79C021C4E5A15B4D52FB /* FitnessNiKenneth WatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 791D29FDC7E4D91A2C570A66 /* Build configuration list for PBXNativeTarget "FitnessNiKenneth WatchApp" */;
+			buildPhases = (
+				3D4C18215821CD45A18FE131 /* Sources */,
+				BE07FCAA31AF7409FB1CA9F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FitnessNiKenneth WatchApp";
+			packageProductDependencies = (
+			);
+			productName = "FitnessNiKenneth WatchApp";
+			productReference = DD9DE53A18338018B5B3EB48 /* FitnessNiKenneth WatchApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C77021D67CF33C5816E7F14 /* FitnessNiKenneth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2AA43FFC8B71203EBACA431 /* Build configuration list for PBXNativeTarget "FitnessNiKenneth" */;
+			buildPhases = (
+				3FA77EE4EE97F6D374323014 /* Sources */,
+				BCCA30ABBE48BD2642CFE705 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FitnessNiKenneth;
+			packageProductDependencies = (
+			);
+			productName = FitnessNiKenneth;
+			productReference = 77B0E4EEBFE44D10F055DFF2 /* FitnessNiKenneth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A23200532DE753090E9379BF /* FitnessNiKennethTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 777D46F51DE051F4C0E8D77A /* Build configuration list for PBXNativeTarget "FitnessNiKennethTests" */;
+			buildPhases = (
+				BF0E9223C8E714CBA7089201 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2885ECA6D222C3CB79CB8D77 /* PBXTargetDependency */,
+			);
+			name = FitnessNiKennethTests;
+			packageProductDependencies = (
+			);
+			productName = FitnessNiKennethTests;
+			productReference = 1ACD4809AEDBEC4668C416B9 /* FitnessNiKennethTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DEB273006BE3EF1AAC305386 /* FitnessNiKennethUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E51149730F3659E8BE8443 /* Build configuration list for PBXNativeTarget "FitnessNiKennethUITests" */;
+			buildPhases = (
+				44EA7E6EAC0E580C95ECF1CB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74D861610463BF6B32C7AD93 /* PBXTargetDependency */,
+			);
+			name = FitnessNiKennethUITests;
+			packageProductDependencies = (
+			);
+			productName = FitnessNiKennethUITests;
+			productReference = FBECA1C9A19181C56BD1DA30 /* FitnessNiKennethUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2EB0AB611AD7566F79B1D767 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					131C79C021C4E5A15B4D52FB = {
+						DevelopmentTeam = "";
+					};
+					1C77021D67CF33C5816E7F14 = {
+						DevelopmentTeam = "";
+					};
+					DEB273006BE3EF1AAC305386 = {
+						TestTargetID = 1C77021D67CF33C5816E7F14;
+					};
+				};
+			};
+			buildConfigurationList = 9C4DB9C67A38ED799E578858 /* Build configuration list for PBXProject "FitnessNiKenneth" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C9EFC090CE59B26AAAAEA0B4;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4AB0A2B2703C80B155590123 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C77021D67CF33C5816E7F14 /* FitnessNiKenneth */,
+				131C79C021C4E5A15B4D52FB /* FitnessNiKenneth WatchApp */,
+				A23200532DE753090E9379BF /* FitnessNiKennethTests */,
+				DEB273006BE3EF1AAC305386 /* FitnessNiKennethUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCCA30ABBE48BD2642CFE705 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B9023B0EF749C1CE0A95870 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE07FCAA31AF7409FB1CA9F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73807294452AEDE7CE49EF02 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D4C18215821CD45A18FE131 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCFB3B1D4C379DBB59E38E5F /* FitnessNiKennethWatchApp.swift in Sources */,
+				79F66D5493FBF6AC98B50162 /* WatchSharedTypes.swift in Sources */,
+				16D1ADFFAF1842C52754DDD9 /* WatchWorkoutEngine.swift in Sources */,
+				1DCFD98C4D120F1A0E338096 /* WatchWorkoutView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA77EE4EE97F6D374323014 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1279B471DC029E5FBFEC81D5 /* ActiveExerciseSection.swift in Sources */,
+				AC9211FA407AE4C2EBE186E4 /* ActiveSetRow.swift in Sources */,
+				C4330D68DBB296816C565ED9 /* ActiveWorkoutView.swift in Sources */,
+				AF436119BED31B23F292A8CD /* AnalyticsService.swift in Sources */,
+				6CB941EDEFF26CC54ED8431C /* AppButton.swift in Sources */,
+				ED95025237B42DE8F1DED2E1 /* AppTheme.swift in Sources */,
+				B3B029C66790B624E009222E /* CalendarView.swift in Sources */,
+				D830DC2BF1A16B348DED9829 /* EditTemplateView.swift in Sources */,
+				4042BBF1C029479DA88A1F85 /* EmptyStateView.swift in Sources */,
+				F43275F3A16646880957C619 /* Exercise.swift in Sources */,
+				E7FDDFD370530414475AAD05 /* ExerciseDetailView.swift in Sources */,
+				912CE32C6E008BD6B0C9D83E /* ExerciseListView.swift in Sources */,
+				0A388862894EEC1066FA8130 /* FinishWorkoutView.swift in Sources */,
+				E4624709CA4D5F16C0EE5F02 /* FitnessNiKennethApp.swift in Sources */,
+				7A3438B9759C1C15C5ED9FA3 /* HistoryView.swift in Sources */,
+				DF3AF04F32321BA22EAA7D0C /* RootTabView.swift in Sources */,
+				2AD02BF3C924B0B4C980358D /* SeedDataService.swift in Sources */,
+				4834CAC6F398CC9DAFA051DD /* SessionDetailView.swift in Sources */,
+				EBD61A1E0ECDC2D294733703 /* SharedTypes.swift in Sources */,
+				4CDE99FBB5A511545E2A5E30 /* StartWorkoutView.swift in Sources */,
+				4199802958043DC6356CE84B /* TemplateDetailView.swift in Sources */,
+				E16851FE301B24340F029121 /* WatchConnectivityService.swift in Sources */,
+				2FB2007ED03C81A270583603 /* WorkoutEngine.swift in Sources */,
+				33ED8AC64B7562C4802319D5 /* WorkoutSession.swift in Sources */,
+				30B04AE585F1A811989CDC3E /* WorkoutTemplate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44EA7E6EAC0E580C95ECF1CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40FCBF25DC7505ECB2CFD68C /* WorkoutFlowUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF0E9223C8E714CBA7089201 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				779623A09F55972C6AF400E6 /* AnalyticsServiceTests.swift in Sources */,
+				C682DDF18C87D5FAF0FB89E1 /* PersistenceTests.swift in Sources */,
+				E3D4F338B02E93F87E01DAC4 /* WorkoutEngineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2885ECA6D222C3CB79CB8D77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C77021D67CF33C5816E7F14 /* FitnessNiKenneth */;
+			targetProxy = BB72B734BA25763997BFE2E6 /* PBXContainerItemProxy */;
+		};
+		74D861610463BF6B32C7AD93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C77021D67CF33C5816E7F14 /* FitnessNiKenneth */;
+			targetProxy = 19683C0BB421CA70593CB460 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D1EF41C961800C426A60F2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FitnessNiKennethUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKennethUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FitnessNiKenneth;
+			};
+			name = Debug;
+		};
+		316716560C0049CE849AC846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FitnessNiKennethTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKennethTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitnessNiKenneth.app/FitnessNiKenneth";
+			};
+			name = Release;
+		};
+		3BDBBF7B6C1F9C9452C79205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitnessNiKenneth/FitnessNiKenneth.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FitnessNiKenneth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKenneth;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60EC020EAA34D8D9178682D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FitnessNiKennethWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKenneth.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+				WK_APPLICATION_EXTENSION_IDENTIFIER = "";
+			};
+			name = Release;
+		};
+		982D067312001600E9E782CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		A4451ED96005EC7BA81C45A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FitnessNiKennethUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKennethUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FitnessNiKenneth;
+			};
+			name = Release;
+		};
+		A817702559617DBAFAA25900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FitnessNiKennethTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKennethTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitnessNiKenneth.app/FitnessNiKenneth";
+			};
+			name = Debug;
+		};
+		CCAC8FFEB6D7C501B1ED09DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FitnessNiKennethWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKenneth.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+				WK_APPLICATION_EXTENSION_IDENTIFIER = "";
+			};
+			name = Debug;
+		};
+		D13C530A23E24C10B605B597 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitnessNiKenneth/FitnessNiKenneth.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FitnessNiKenneth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennethsolomon.FitnessNiKenneth;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D50895AE2DCEDA8A2D4E238A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53E51149730F3659E8BE8443 /* Build configuration list for PBXNativeTarget "FitnessNiKennethUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D1EF41C961800C426A60F2E /* Debug */,
+				A4451ED96005EC7BA81C45A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		777D46F51DE051F4C0E8D77A /* Build configuration list for PBXNativeTarget "FitnessNiKennethTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A817702559617DBAFAA25900 /* Debug */,
+				316716560C0049CE849AC846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		791D29FDC7E4D91A2C570A66 /* Build configuration list for PBXNativeTarget "FitnessNiKenneth WatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCAC8FFEB6D7C501B1ED09DB /* Debug */,
+				60EC020EAA34D8D9178682D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9C4DB9C67A38ED799E578858 /* Build configuration list for PBXProject "FitnessNiKenneth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				982D067312001600E9E782CC /* Debug */,
+				D50895AE2DCEDA8A2D4E238A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D2AA43FFC8B71203EBACA431 /* Build configuration list for PBXNativeTarget "FitnessNiKenneth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BDBBF7B6C1F9C9452C79205 /* Debug */,
+				D13C530A23E24C10B605B597 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2EB0AB611AD7566F79B1D767 /* Project object */;
+}

@@ -1,0 +1,16 @@
+{
+  "source": "/Users/kennethsolomon/Herd/fitness-ni-kenneth/FitnessNiKenneth/Core/Design/Components/AppButton.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "PR",
+        "location": {
+          "startingColumn": 14,
+          "startingLine": 106
+        }
+      }
+    ]
+  },
+  "version": 1
+}

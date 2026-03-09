@@ -1,0 +1,48 @@
+{
+  "source": "/Users/kennethsolomon/Herd/fitness-ni-kenneth/FitnessNiKenneth/Features/Workout/Templates/TemplateDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Exercises",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start This Workout",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld sets × %lld reps",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "@ %lld %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 96
+        }
+      }
+    ]
+  },
+  "version": 1
+}

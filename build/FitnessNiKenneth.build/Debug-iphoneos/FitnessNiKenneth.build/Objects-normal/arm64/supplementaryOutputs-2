@@ -1,0 +1,23 @@
+{
+  "/Users/kennethsolomon/Herd/fitness-ni-kenneth/FitnessNiKenneth/Core/Design/AppTheme.swift" : {
+    "const-values" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppTheme.swiftconstvalues",
+    "dependencies" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppTheme.d",
+    "diagnostics" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppTheme.dia",
+    "object" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppTheme.o",
+    "swift-dependencies" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppTheme.swiftdeps"
+  },
+  "/Users/kennethsolomon/Herd/fitness-ni-kenneth/FitnessNiKenneth/Core/Design/Components/AppButton.swift" : {
+    "const-values" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppButton.swiftconstvalues",
+    "dependencies" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppButton.d",
+    "diagnostics" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppButton.dia",
+    "object" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppButton.o",
+    "swift-dependencies" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AppButton.swiftdeps"
+  },
+  "/Users/kennethsolomon/Herd/fitness-ni-kenneth/FitnessNiKenneth/Core/Services/AnalyticsService.swift" : {
+    "const-values" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AnalyticsService.swiftconstvalues",
+    "dependencies" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AnalyticsService.d",
+    "diagnostics" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AnalyticsService.dia",
+    "object" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AnalyticsService.o",
+    "swift-dependencies" : "/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/FitnessNiKenneth.build/Debug-iphoneos/FitnessNiKenneth.build/Objects-normal/arm64/AnalyticsService.swiftdeps"
+  }
+}

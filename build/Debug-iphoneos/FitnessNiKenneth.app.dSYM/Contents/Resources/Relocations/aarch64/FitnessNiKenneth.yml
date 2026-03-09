@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kennethsolomon/Herd/fitness-ni-kenneth/build/Debug-iphoneos/FitnessNiKenneth.app/FitnessNiKenneth'
+relocations:     []
+...

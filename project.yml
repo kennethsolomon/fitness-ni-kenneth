@@ -1,0 +1,129 @@
+name: FitnessNiKenneth
+
+options:
+  bundleIdPrefix: com.kennethsolomon
+  deploymentTarget:
+    iOS: "18.0"
+    watchOS: "11.0"
+  xcodeVersion: "26.2"
+  groupSortPosition: none
+  createIntermediateGroups: true
+  transitivelyLinkDependencies: true
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    ENABLE_TESTABILITY: YES
+    DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+    GCC_OPTIMIZATION_LEVEL: "0"
+  configs:
+    Release:
+      GCC_OPTIMIZATION_LEVEL: s
+      SWIFT_OPTIMIZATION_LEVEL: "-O"
+      DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+
+targets:
+  FitnessNiKenneth:
+    type: application
+    platform: iOS
+    deploymentTarget: "18.0"
+    sources:
+      - path: FitnessNiKenneth
+    resources:
+      - path: FitnessNiKenneth/Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.kennethsolomon.FitnessNiKenneth
+        INFOPLIST_FILE: FitnessNiKenneth/Info.plist
+        CODE_SIGN_ENTITLEMENTS: FitnessNiKenneth/FitnessNiKenneth.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_EMIT_LOC_STRINGS: YES
+        DEVELOPMENT_TEAM: ""
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+  "FitnessNiKenneth WatchApp":
+    type: application
+    platform: watchOS
+    deploymentTarget: "11.0"
+    sources:
+      - path: FitnessNiKennethWatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.kennethsolomon.FitnessNiKenneth.watchkitapp
+        INFOPLIST_FILE: FitnessNiKennethWatch/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        DEVELOPMENT_TEAM: ""
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        WK_APPLICATION_EXTENSION_IDENTIFIER: ""
+
+  FitnessNiKennethTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "18.0"
+    sources:
+      - path: FitnessNiKennethTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.kennethsolomon.FitnessNiKennethTests
+        INFOPLIST_FILE: FitnessNiKennethTests/Info.plist
+    dependencies:
+      - target: FitnessNiKenneth
+
+  FitnessNiKennethUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "18.0"
+    sources:
+      - path: FitnessNiKennethUITests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.kennethsolomon.FitnessNiKennethUITests
+        INFOPLIST_FILE: FitnessNiKennethUITests/Info.plist
+        TEST_TARGET_NAME: FitnessNiKenneth
+    dependencies:
+      - target: FitnessNiKenneth
+
+schemes:
+  FitnessNiKenneth:
+    build:
+      targets:
+        FitnessNiKenneth: [run, test, profile, analyze, archive]
+        FitnessNiKennethTests: [test]
+        FitnessNiKennethUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - name: FitnessNiKennethTests
+          parallelizable: true
+        - name: FitnessNiKennethUITests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+  "FitnessNiKenneth (Full)":
+    build:
+      targets:
+        FitnessNiKenneth: all
+        "FitnessNiKenneth WatchApp": all
+        FitnessNiKennethTests: [test]
+        FitnessNiKennethUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - name: FitnessNiKennethTests
+          parallelizable: true
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
