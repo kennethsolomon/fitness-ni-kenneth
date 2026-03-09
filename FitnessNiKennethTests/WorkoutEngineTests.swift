@@ -163,4 +163,187 @@ struct WorkoutEngineTests {
         let converted = WeightUnit.lbs.convert(100, to: .lbs)
         #expect(converted == 100)
     }
+
+    // MARK: - Rest Timer (new: restTotalSeconds + manual overload)
+
+    @Test func startRestTimer_withExerciseID_setsRestTotalSeconds() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 90, exerciseID: UUID())
+        #expect(engine.restTotalSeconds == 90)
+        #expect(engine.isResting == true)
+    }
+
+    @Test func startRestTimer_manual_setsRestingState() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 60)
+        #expect(engine.isResting == true)
+        #expect(engine.restSecondsRemaining == 60)
+        #expect(engine.restTotalSeconds == 60)
+    }
+
+    @Test func startRestTimer_manual_clearsActiveRestExerciseID() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 60)
+        #expect(engine.activeRestExerciseID == nil)
+    }
+
+    @Test func cancelRestTimer_clearsRestTotalSeconds() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 60, exerciseID: UUID())
+        engine.cancelRestTimer()
+        #expect(engine.restTotalSeconds == 0)
+    }
+
+    @Test func adjustRestTimer_addsSeconds() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 60, exerciseID: UUID())
+        engine.adjustRestTimer(by: 10)
+        #expect(engine.restSecondsRemaining == 70)
+    }
+
+    @Test func adjustRestTimer_subtractsSeconds() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 60, exerciseID: UUID())
+        engine.adjustRestTimer(by: -10)
+        #expect(engine.restSecondsRemaining == 50)
+    }
+
+    @Test func adjustRestTimer_clampsToMinimumOfOne() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 5, exerciseID: UUID())
+        engine.adjustRestTimer(by: -100)
+        #expect(engine.restSecondsRemaining == 1)
+    }
+
+    @Test func adjustRestTimer_clampsToMaximum3600() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 3600, exerciseID: UUID())
+        engine.adjustRestTimer(by: 100)
+        #expect(engine.restSecondsRemaining == 3600)
+    }
+
+    @Test func adjustRestTimer_whenNotResting_doesNothing() {
+        let engine = makeEngine()
+        #expect(engine.isResting == false)
+        engine.adjustRestTimer(by: 30)
+        #expect(engine.restSecondsRemaining == 0)
+    }
+
+    @Test func adjustRestTimer_doesNotResetRestTotalSeconds() {
+        let engine = makeEngine()
+        engine.startRestTimer(seconds: 60, exerciseID: UUID())
+        engine.adjustRestTimer(by: 10)
+        #expect(engine.restTotalSeconds == 60)
+        #expect(engine.restSecondsRemaining == 70)
+    }
+
+    // MARK: - Set Tag
+
+    @Test func setTag_displayLabels_areCorrect() {
+        #expect(SetTag.normal.displayLabel == "Normal")
+        #expect(SetTag.warmup.displayLabel == "Warm-up")
+        #expect(SetTag.dropSet.displayLabel == "Drop Set")
+        #expect(SetTag.failure.displayLabel == "Failure")
+    }
+
+    @Test func setTag_badgeLabels_areCorrect() {
+        #expect(SetTag.warmup.badgeLabel == "W")
+        #expect(SetTag.dropSet.badgeLabel == "D")
+        #expect(SetTag.failure.badgeLabel == "F")
+    }
+
+    @Test func setTag_roundtripsViaRawValue() {
+        for tag in SetTag.allCases {
+            #expect(SetTag(rawValue: tag.rawValue) == tag)
+        }
+    }
+
+    @Test func updateSetTag_changesTagOnSet() {
+        let engine = makeEngine()
+        let exercise = makeExercise()
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        let setID = exercise.sets[0].id
+        engine.updateSetTag(setID: setID, exerciseID: exercise.id, tag: .warmup)
+        let updatedSet = engine.session?.exercises.first?.sets.first { $0.id == setID }
+        #expect(updatedSet?.tag == .warmup)
+    }
+
+    @Test func updateSetTag_toFailure_persistsTag() {
+        let engine = makeEngine()
+        let exercise = makeExercise()
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        let setID = exercise.sets[1].id
+        engine.updateSetTag(setID: setID, exerciseID: exercise.id, tag: .failure)
+        let updatedSet = engine.session?.exercises.first?.sets.first { $0.id == setID }
+        #expect(updatedSet?.tag == .failure)
+    }
+
+    @Test func updateSetTag_unknownSetID_doesNotCrash() {
+        let engine = makeEngine()
+        let exercise = makeExercise()
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        engine.updateSetTag(setID: UUID(), exerciseID: exercise.id, tag: .dropSet)
+        #expect(engine.session?.exercises.first?.sets.first?.tag == .normal)
+    }
+
+    @Test func updateSetTag_unknownExerciseID_doesNotCrash() {
+        let engine = makeEngine()
+        let exercise = makeExercise()
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        engine.updateSetTag(setID: exercise.sets[0].id, exerciseID: UUID(), tag: .failure)
+        #expect(engine.session?.exercises.first?.sets.first?.tag == .normal)
+    }
+
+    // MARK: - Exercise Unit Toggle
+
+    @Test func updateExerciseUnit_lbsToKg_convertsSetWeights() {
+        let engine = makeEngine()
+        let exercise = makeExercise() // sets have 135 lbs
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        engine.updateExerciseUnit(id: exercise.id, unit: .kg)
+        let convertedWeight = engine.session?.exercises.first?.sets.first?.weight ?? 0
+        #expect(abs(convertedWeight - 61.235) < 0.01)
+    }
+
+    @Test func updateExerciseUnit_kgToLbs_convertsSetWeights() {
+        let engine = makeEngine()
+        let kgExercise = ActiveExercise(
+            exerciseID: UUID(),
+            exerciseName: "Squat",
+            sets: [ActiveSet(weight: 100, reps: 5, unit: .kg)],
+            restSeconds: 90,
+            unit: .kg
+        )
+        engine.startWorkout(name: "Test", exercises: [kgExercise])
+        engine.updateExerciseUnit(id: kgExercise.id, unit: .lbs)
+        let convertedWeight = engine.session?.exercises.first?.sets.first?.weight ?? 0
+        #expect(abs(convertedWeight - 220.462) < 0.01)
+    }
+
+    @Test func updateExerciseUnit_sameUnit_doesNotChangeWeights() {
+        let engine = makeEngine()
+        let exercise = makeExercise()
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        engine.updateExerciseUnit(id: exercise.id, unit: .lbs)
+        let weight = engine.session?.exercises.first?.sets.first?.weight ?? 0
+        #expect(weight == 135)
+    }
+
+    @Test func updateExerciseUnit_updatesExerciseUnitProperty() {
+        let engine = makeEngine()
+        let exercise = makeExercise()
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        #expect(engine.session?.exercises.first?.unit == .lbs)
+        engine.updateExerciseUnit(id: exercise.id, unit: .kg)
+        #expect(engine.session?.exercises.first?.unit == .kg)
+    }
+
+    @Test func updateExerciseUnit_updatesAllSetUnits() {
+        let engine = makeEngine()
+        let exercise = makeExercise()
+        engine.startWorkout(name: "Test", exercises: [exercise])
+        engine.updateExerciseUnit(id: exercise.id, unit: .kg)
+        let sets = engine.session?.exercises.first?.sets ?? []
+        #expect(sets.allSatisfy { $0.unit == .kg })
+    }
 }

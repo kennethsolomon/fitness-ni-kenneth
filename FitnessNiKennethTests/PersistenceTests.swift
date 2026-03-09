@@ -143,6 +143,117 @@ struct PersistenceTests {
         #expect(templates.first?.exercises.first?.defaultSets == 4)
     }
 
+    // MARK: - WorkoutSet Tag Persistence
+
+    @Test func workoutSet_defaultTag_isNormal() throws {
+        let container = try makeInMemoryContainer()
+        let context = container.mainContext
+
+        let exercise = Exercise(
+            name: "Tag Test Exercise",
+            primaryMuscles: [.chest],
+            equipment: .barbell,
+            category: .push,
+            instructions: ""
+        )
+        context.insert(exercise)
+        let session = WorkoutSession(name: "Tag Test")
+        session.finishedAt = Date()
+        context.insert(session)
+        let workoutExercise = WorkoutExercise(exercise: exercise, session: session, order: 0)
+        context.insert(workoutExercise)
+        let set = WorkoutSet(workoutExercise: workoutExercise, order: 0, weight: 100, reps: 5, unit: .lbs)
+        context.insert(set)
+        try context.save()
+
+        let fetched = try context.fetch(FetchDescriptor<WorkoutSet>())
+        #expect(fetched.first?.tag == .normal)
+        #expect(fetched.first?.tagRaw == "normal")
+    }
+
+    @Test func workoutSet_persistsFailureTag() throws {
+        let container = try makeInMemoryContainer()
+        let context = container.mainContext
+
+        let exercise = Exercise(
+            name: "Tag Test Exercise",
+            primaryMuscles: [.chest],
+            equipment: .barbell,
+            category: .push,
+            instructions: ""
+        )
+        context.insert(exercise)
+        let session = WorkoutSession(name: "Tag Test")
+        session.finishedAt = Date()
+        context.insert(session)
+        let workoutExercise = WorkoutExercise(exercise: exercise, session: session, order: 0)
+        context.insert(workoutExercise)
+        let set = WorkoutSet(workoutExercise: workoutExercise, order: 0, weight: 100, reps: 5, unit: .lbs, tag: .failure)
+        context.insert(set)
+        try context.save()
+
+        let fetched = try context.fetch(FetchDescriptor<WorkoutSet>())
+        #expect(fetched.first?.tag == .failure)
+        #expect(fetched.first?.tagRaw == "failure")
+    }
+
+    @Test func workoutSet_persistsWarmupTag() throws {
+        let container = try makeInMemoryContainer()
+        let context = container.mainContext
+
+        let exercise = Exercise(
+            name: "Tag Test Exercise",
+            primaryMuscles: [.chest],
+            equipment: .barbell,
+            category: .push,
+            instructions: ""
+        )
+        context.insert(exercise)
+        let session = WorkoutSession(name: "Tag Test")
+        session.finishedAt = Date()
+        context.insert(session)
+        let workoutExercise = WorkoutExercise(exercise: exercise, session: session, order: 0)
+        context.insert(workoutExercise)
+        let set = WorkoutSet(workoutExercise: workoutExercise, order: 0, weight: 60, reps: 12, unit: .kg, tag: .warmup)
+        context.insert(set)
+        try context.save()
+
+        let fetched = try context.fetch(FetchDescriptor<WorkoutSet>())
+        #expect(fetched.first?.tag == .warmup)
+    }
+
+    @Test func workoutEngine_finishWorkout_persistsSetTag() throws {
+        let container = try makeInMemoryContainer()
+        let context = container.mainContext
+
+        let exercise = Exercise(
+            id: UUID(),
+            name: "Bench Press",
+            primaryMuscles: [.chest],
+            equipment: .barbell,
+            category: .push,
+            instructions: ""
+        )
+        context.insert(exercise)
+        try context.save()
+
+        let engine = WorkoutEngine()
+        var warmupSet = ActiveSet(weight: 60, reps: 10, unit: .lbs)
+        warmupSet.tag = .warmup
+        let activeExercise = ActiveExercise(
+            exerciseID: exercise.id,
+            exerciseName: exercise.name,
+            sets: [warmupSet]
+        )
+        engine.startWorkout(name: "Tag Persist Test", exercises: [activeExercise])
+        engine.toggleSetCompletion(setID: warmupSet.id, exerciseID: activeExercise.id)
+        _ = engine.finishWorkout(context: context)
+
+        let sets = try context.fetch(FetchDescriptor<WorkoutSet>())
+        #expect(sets.first?.tag == .warmup)
+        #expect(sets.first?.tagRaw == "warmup")
+    }
+
     // MARK: - WorkoutEngine Finish Integration
 
     @Test func workoutEngine_finishWorkout_persistsSession() throws {
