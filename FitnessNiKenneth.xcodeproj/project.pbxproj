@@ -90,7 +90,7 @@
 		6AC9469FA415FCE2B37A5FCF /* WatchConnectivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityService.swift; sourceTree = "<group>"; };
 		70557963661264C1F15BA363 /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 		74D1F644B36C7F43E814586A /* ActiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveWorkoutView.swift; sourceTree = "<group>"; };
-		77B0E4EEBFE44D10F055DFF2 /* FitnessNiKenneth.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FitnessNiKenneth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77B0E4EEBFE44D10F055DFF2 /* FitnessNiKenneth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessNiKenneth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AC6EEF1AD34B44A6C170B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		812C4ECB0353B3DD4A83C8DA /* ActiveExerciseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveExerciseSection.swift; sourceTree = "<group>"; };
 		8B5AFCADC1844B72CF58E4B2 /* AnalyticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsServiceTests.swift; sourceTree = "<group>"; };
@@ -423,9 +423,6 @@
 					131C79C021C4E5A15B4D52FB = {
 						DevelopmentTeam = "";
 					};
-					1C77021D67CF33C5816E7F14 = {
-						DevelopmentTeam = "";
-					};
 					DEB273006BE3EF1AAC305386 = {
 						TestTargetID = 1C77021D67CF33C5816E7F14;
 					};
@@ -597,7 +594,7 @@
 				CODE_SIGN_ENTITLEMENTS = FitnessNiKenneth/FitnessNiKenneth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CL4Z3C7CSV;
 				INFOPLIST_FILE = FitnessNiKenneth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -754,7 +751,7 @@
 				CODE_SIGN_ENTITLEMENTS = FitnessNiKenneth/FitnessNiKenneth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CL4Z3C7CSV;
 				INFOPLIST_FILE = FitnessNiKenneth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
